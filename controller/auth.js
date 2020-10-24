@@ -93,7 +93,7 @@ const loginUser = async (req, res = response) => {
 const renewToken = async (req, res = response) => {
   //Generate New Token
   const token = await jwt.generateJWT(req.uid, req.name);
-
+  const { uid, name } = req;
   res.status(200).json({
     ok: true,
     uid,
