@@ -11,8 +11,8 @@ const {
   createEvents,
   updateEvents,
   deleteEvents,
-} = require("../controller/events");
-const isDate = require("../helpers/isDate");
+} = require("../controller/eventsController");
+const { isDate } = require("../helpers/isDate");
 
 router.use(checkJWT);
 
@@ -24,8 +24,8 @@ router.post(
   "/",
   [
     check("title", "the title is required").not().isEmpty(),
-    check("start", "Date is required").isDate(),
-    check("end", "Ending date is required").isDate(),
+    check("start", "Date is required").custom(isDate),
+    check("end", "Ending date is required").custom(isDate),
     fieldsValidate,
   ],
   createEvents

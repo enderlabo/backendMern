@@ -29,4 +29,4 @@ EventsSchema.method("toJSON", function () {
   return object;
 });
 
-module.exports = model("events", EventsSchema);
+module.exports = model("Evento", EventsSchema);
